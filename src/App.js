@@ -1,16 +1,14 @@
 import React from 'react';
-
 import './App.css';
-import  TextFl  from './components/TextField';
+import Myindex from './containers/main';
 
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <TextFl/>
-      </header>
-      
+        <Myindex/>
+      </header>      
     </div>
   );
 }
