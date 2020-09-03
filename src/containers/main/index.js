@@ -1,25 +1,38 @@
 
 import React from 'react';
 import  TextFl  from '../../components/TextField';
-import colorizd from '../../components/TextFColor';
+import Colorizd from '../../components/TextFColor';
 import { useEffect,useState } from 'react';
 
-const Myindex = ()=>{
-  
-  const anotr = {
-   value:'1'};
-//  useEffect()
-  const handleChange=({target})=>{
-    let campo = target.value;
-    campo = campo.replaceAll('_',' ');
-    console.log(campo);
-    
-    }
+ 
 
+function Myindex (){
+  const [camp,setCamp] = useState('Carregando');
+    const handleChange=({target})=>{
+      
+      let campo = target.value;
+      campo = campo.replaceAll('_',' ');
+      console.log(campo);
+      setCamp(campo);
+       
+    };
+      
+
+       const indx = (
+       <div>
+         <TextFl theChange={handleChange} answer={camp} />
+         <Colorizd/>
+        </div>);
+
+
+          useEffect(()=>{
+            
+          },[camp]);
+  
+     
   return(
     <div>
-      <TextFl theChange={handleChange} />
-      <colorizd/>
+        {indx}
     </div>
   );
 }
