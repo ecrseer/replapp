@@ -8,12 +8,18 @@ import { useEffect,useState } from 'react';
 
 function Myindex (){
   const [camp,setCamp] = useState('Carregando');
+  const [carregando,isCarregando] = useState(false);
     const handleChange=({target})=>{
       
       let campo = target.value;
-      campo = campo.replaceAll('_',' ');
-      console.log(campo);
-      setCamp(campo);
+      if(!carregando){
+        isCarregando(true);
+        setTimeout(()=>campo = campo.replaceAll('_',' '),3000);        
+        setCamp(campo);
+        isCarregando(false);
+
+      }        
+        
        
     };
       
