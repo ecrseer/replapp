@@ -2,7 +2,8 @@ import React from 'react';
 import { makeStyles
   } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import copyButton from './CopyButton';
+import CopyButton from './CopyButton';
+
 
 
 
@@ -56,7 +57,8 @@ export default function LayoutTextFields( {answer,theChange}) {
           value={answer?answer:''}
           variant="filled"
         /> 
-        <copyButton/>
+        <CopyButton copyInfo={copyInfo}/>
+         
         </div>
 
         

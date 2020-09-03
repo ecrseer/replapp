@@ -21,7 +21,7 @@ function Myindex (){
        const indx = (
        <div>
          <TextFl theChange={handleChange} answer={camp} />
-         <Colorizd/>
+         
         </div>);
 
 
