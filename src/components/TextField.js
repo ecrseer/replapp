@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useRef} from 'react';
 import { makeStyles
   } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -22,19 +22,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function LayoutTextFields( {answer,theChange}) {
+  const entrad = useRef(null);
   const copyInfo = ()=>{
     navigator.
-     clipboard.writeText(`${answer}`)};
+     clipboard.writeText(`${answer} and ${entrad.current.value}`)};
   
 
-  const classes = useStyles();
+  const classes = useStyles();  
   return (   <div className={classes.root}>
         <TextField
           id="filled-full-width"
           label= "Digite o texto aqui" 
           style={{ margin: 8 }}
           placeholder="Digite"
-          
+          ref={entrad}
           margin="normal"
           InputLabelProps={{
             shrink: true,

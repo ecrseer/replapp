@@ -9,18 +9,20 @@ import { useEffect,useState } from 'react';
 function Myindex (){
   const [camp,setCamp] = useState('Carregando');
   const [carregando,isCarregando] = useState(false);
-    const handleChange=({target})=>{
-      
-      let campo = target.value;
-      if(!carregando){
-        isCarregando(true);
-        setTimeout(()=>campo = campo.replaceAll('_',' '),3000);        
-        setCamp(campo);
-        isCarregando(false);
 
-      }        
-        
-       
+  function replacer(field){
+    field = field.replaceAll('_',' ');
+    setCamp(field);
+    isCarregando(false);
+    console.log(carregando);
+  }
+    const handleChange=({target})=>{      
+      
+      if(!carregando){
+        let campo = target.value;
+        isCarregando(true);
+        setTimeout(()=>replacer(campo) ,100);   
+      }      
     };
       
 
@@ -33,7 +35,7 @@ function Myindex (){
 
           useEffect(()=>{
             
-          },[camp]);
+          },[]);
   
      
   return(
