@@ -24,7 +24,7 @@ function Myindex (){
         setTimeout(()=>replacer(campo) ,100);   
       }      
     };
-      
+       
 
        const indx = (
        <div>
