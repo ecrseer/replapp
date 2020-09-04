@@ -11,6 +11,12 @@ import Button from '@material-ui/core/Button';
       <Button variant="contained" color="primary" 
           onClick={copyInfo?copyInfo:()=>{}}>
           Copiar
+      </Button> 
+       
+       
+      <Button variant="contained" color="primary" 
+          onClick={copyInfo?copyInfo:()=>{}}>
+          botao do breno
       </Button>
     </div>);
  }
