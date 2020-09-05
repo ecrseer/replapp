@@ -1,8 +1,9 @@
-import React,{useRef} from 'react';
+import React,{useRef, useState} from 'react';
 import { makeStyles
   } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import CopyButton from './CopyButton';
+import { Portal } from '@material-ui/core';
 
 
 
@@ -22,10 +23,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function LayoutTextFields( {answer,theChange}) {
+  const [show,setShow] = useState(false);
   const entrad = useRef(null);
   const copyInfo = ()=>{
     navigator.
-     clipboard.writeText(`${answer} and ${entrad.current.value}`)};
+     clipboard.writeText(`${answer} and ${entrad.current}`);
+     //entrad.addEventListener('mouseenter',e=> entrad.style.border ='5px');
+    };
+    const segundaA = () =>{
+      console.log(show);
+        setShow(!show);
+    }
   
 
   const classes = useStyles();  
@@ -42,6 +50,7 @@ export default function LayoutTextFields( {answer,theChange}) {
           }}
           variant="filled"
           onChange= {theChange? theChange : ()=>{}}
+          
         /> 
          
         <TextField
@@ -58,8 +67,14 @@ export default function LayoutTextFields( {answer,theChange}) {
           value={answer?answer:''}
           variant="filled"
         /> 
-        <CopyButton copyInfo={copyInfo}/>
+        <CopyButton copyInfo={copyInfo} testez={segundaA}/>
+         <br/>
          
+           <h1>a{answer}</h1>
+         
+         {show? (<Portal>
+           <h1>{answer}</h1>
+         </Portal>):null}
         </div>
 
         

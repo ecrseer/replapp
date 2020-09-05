@@ -4,31 +4,32 @@ import  TextFl  from '../../components/TextField';
 import Colorizd from '../../components/TextFColor';
 import { useEffect,useState } from 'react';
 
+
  
 
 function Myindex (){
-  const [camp,setCamp] = useState('Carregando');
-  const [carregando,isCarregando] = useState(false);
+  const [camp,setCamp] = useState('Carregando');  
+  const [timer,setTimer] = useState();
+ 
+ 
+
+  const handleChange2 = ({target})=>{
+    setTimer(clearTimeout());
+    setTimer(setTimeout(()=>replacer(target.value),1500));
+    
+  } 
+
 
   function replacer(field){
     field = field.replaceAll('_',' ');
-    setCamp(field);
-    isCarregando(false);
-    console.log(carregando);
-  }
-    const handleChange=({target})=>{      
-      
-      if(!carregando){
-        let campo = target.value;
-        isCarregando(true);
-        setTimeout(()=>replacer(campo) ,100);   
-      }      
-    };
+    setCamp(field);  
+    
+  } 
        
 
        const indx = (
        <div>
-         <TextFl theChange={handleChange} answer={camp} />
+         <TextFl theChange={handleChange2} answer={camp} />
          
         </div>);
 
