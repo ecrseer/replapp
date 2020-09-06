@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 export default function LayoutTextFields( {answer,theChange}) {
   const [show,setShow] = useState(false);
   const entrad = useRef(null);
+  const container = useRef(null);
   const copyInfo = ()=>{
     navigator.
      clipboard.writeText(`${answer} and ${entrad.current}`);
@@ -69,12 +70,17 @@ export default function LayoutTextFields( {answer,theChange}) {
         /> 
         <CopyButton copyInfo={copyInfo} testez={segundaA}/>
          <br/>
-         
-           <h1>a{answer}</h1>
-         
+         <div>
          {show? (<Portal>
-           <h1>{answer}</h1>
+           <h1>so{answer}</h1>
          </Portal>):null}
+         </div>
+
+         <div ref={container}>
+            meet my maker
+         </div>
+          
+         
         </div>
 
         
