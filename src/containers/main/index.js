@@ -17,7 +17,8 @@ function Myindex (){
  
 
   const handleChange2 = ({target})=>{
-    setTimer(clearTimeout());
+    let tim = timer; //1400
+    clearTimeout(tim); //0
     setTimer(setTimeout(()=>replacer(target.value),1500));
     
   } 
