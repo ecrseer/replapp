@@ -50,7 +50,7 @@ export default function LayoutTextFields( {answer,theChange}) {
             shrink: true,
           }}
           variant="filled"
-          onChange= {theChange? theChange : ()=>{}}
+          onChange= {theChange? theChange : ()=>{} }
           
         /> 
          
