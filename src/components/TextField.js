@@ -4,23 +4,36 @@ import { makeStyles
 import TextField from '@material-ui/core/TextField';
 import CopyButton from './CopyButton';
 import { Portal } from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+import { purple,green } from '@material-ui/core/colors';
 
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {main: green[500]},
+    secondary: {main: purple[500]},
+    
+    
+  },
+});
 
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
+  root:{/* 
+  display: 'flex',
     flexWrap: 'wrap',
     height: '55ch',
-    color:'#fff',
+    color:'#fff', */
   },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: '25ch',
-  },
-}));
+  textField: { 
+    padding:'0.5%',
+    color:'white'
+}
+}
+));
 
 export default function LayoutTextFields( {answer,theChange}) {
   const [show,setShow] = useState(false);
@@ -28,7 +41,7 @@ export default function LayoutTextFields( {answer,theChange}) {
   const container = useRef(null);
   const copyInfo = ()=>{
     navigator.
-     clipboard.writeText(`${answer} and ${entrad.current}`);
+     clipboard.writeText(`${answer}`);
      //entrad.addEventListener('mouseenter',e=> entrad.style.border ='5px');
     };
     const segundaA = () =>{
@@ -38,50 +51,63 @@ export default function LayoutTextFields( {answer,theChange}) {
   
 
   const classes = useStyles();  
-  return (   <div className={classes.root}>
+  
+  return ( <ThemeProvider theme={theme}>
+      <div className={classes.root}>
         <TextField
           id="filled-full-width"
           label= "Digite o texto aqui" 
-          style={{ margin: 8 }}
+          //style={{ margin: '8px' }) doesnt work
+          color="secondary"
+          //className={classes.textField} doesnt work
+          autoFocus={true}
           placeholder="Digite"
           ref={entrad}
           margin="normal"
           InputLabelProps={{
             shrink: true,
+            root: '#aaa',
+            focused: '#fff',
+            
+            
           }}
+          InputProps={
+            {
+              className:classes.textField
+          }
+        }
           variant="filled"
           onChange= {theChange? theChange : ()=>{} }
           
-        /> 
+        />  
          
-        <TextField
+         <TextField
           id="filled-full-width"
-          label="Resposta"
-          style={{ margin: 3 }}
-          placeholder="Carregando"
+          label= "Result" 
+          //style={{ margin: '8px' }) doesnt work
+          
+          className={classes.textField}
+          placeholder="Digite"
           
           margin="normal"
           InputLabelProps={{
             shrink: true,
+            color: "primary"
           }}
-          
+          InputProps={
+            {
+              className:classes.textField
+          }
+        }
           value={answer?answer:''}
           variant="filled"
-        /> 
-        <CopyButton copyInfo={copyInfo} testez={segundaA}/>
-         <br/>
-         <div>
-         {show? (<Portal>
-           <h1>so{answer}</h1>
-         </Portal>):null}
-         </div>
-
-         <div ref={container}>
-            meet my maker
-         </div>
-          
+        />  <br/>
+        <CopyButton  copyInfo={copyInfo} testez={segundaA} style={{ cursor: 'not-allowed' }}/>
+         
+         
          
         </div>
+        </ThemeProvider>
 
         
 

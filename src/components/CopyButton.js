@@ -13,11 +13,6 @@ import Button from '@material-ui/core/Button';
           Copiar
       </Button> 
        
-       
-      <Button variant="contained" color="secondary" style={{marginLeft:'1em'}}
-          onClick={testez?testez:()=>{}}>
-          botao do breno
-      </Button>
     </div>);
  }
 

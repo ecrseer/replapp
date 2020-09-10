@@ -9,13 +9,11 @@
 }
 
 .App-header {
-  background-color: #7a7f88;
+  background-color: #2e2b5f;
   min-height: 100vh;
-  display: flex;
-  
-  align-items: center;
-  
-  font-size: calc(10px + 2vmin);
+  display: flexbox; 
+  align-items: right; 
+  font-size: calc(20px + 2vmin);
   color: white;
 }
 
