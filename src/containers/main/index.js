@@ -8,6 +8,7 @@ import { useEffect,useState } from 'react';
 import Alert from '@material-ui/lab/Alert';
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
+import InfoBoard from '../../components/InfoBoard';
 
 
 
@@ -96,6 +97,10 @@ const classes = useStyles();
       {titulo}
          {errin? fedeu: <br/>}
         {indx}
+        <br/>
+        <br/>
+          
+          <InfoBoard />
          
         
 
