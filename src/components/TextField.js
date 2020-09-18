@@ -42,6 +42,7 @@ export default function LayoutTextFields( {answer,theChange}) {
   const copyInfo = ()=>{
     navigator.
      clipboard.writeText(`${answer}`);
+     console.log("copiado");
      //entrad.addEventListener('mouseenter',e=> entrad.style.border ='5px');
     };
     const segundaA = () =>{
